@@ -119,6 +119,12 @@ Include natural transitions like matlab, dekhiye, waise, sahi baat hai.
 Audio Cues (ElevenLabs):
 Use cues like [happy], [smile], [sad], [thinking], [sigh], [pause], [laugh], [serious], [relief], [excited], [surprised], [hmm], [clears throat].
 
+Output Format:
+Output should be in the following format:
+<speaker_A>: "Aaaj ki new dekhi Riya"
+<speaker_B>: "Kya hua , mai aaj bhut busy thi yaar"
+<speaker_A>: "hmm , Aaaj India ne Australia ko 9 Wicket se haraya"
+
 Constraints:
 1. START IMMEDIATELY: No intro, no "Here is the script," and no meta-tags.
 2. Output should contain only conversation 
@@ -608,3 +614,4 @@ else:
     
     if __name__ == "__main__":
         main()
+
