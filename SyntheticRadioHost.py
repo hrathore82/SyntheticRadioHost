@@ -57,8 +57,8 @@ import io,os,sys
 import argparse
 import requests
 
-#*************** Update Value of stlit to True for running in Streamlit and False for running using CLI
-stlit = True
+#*************** Update Value of stlit to True for running in streamlit and False for running using CLI
+stlit = False
 
 LLM_Model = "llama3:8b"
 import streamlit as st
@@ -284,13 +284,41 @@ def hinglish_converter(data):
     if stlit:
         with st.spinner("Hinglish Conversion ongoing... please wait ⏳"):
             for sentence in data:
-                Conversation=llm.invoke([{"role": "system", "content": prompt}, {"role": "user", "content": sentence}])
-                HinglishData.append(Conversation)
+                try:
+                    Conversation=llm.invoke([{"role": "system", "content": prompt}, {"role": "user", "content": sentence}])
+                    if Conversation and len(str(Conversation).strip()) > 0:
+                        HinglishData.append(Conversation)
+                    else:
+                        if stlit:
+                            st.warning(f"Empty response for sentence: {sentence[:50]}...")
+                        print(f"Warning: Empty LLM response for sentence: {sentence[:50]}...")
+                except Exception as ex:
+                    if stlit:
+                        st.error(f"Failed to convert sentence: {sentence[:50]}... Error: {str(ex)}")
+                    print(f"Error processing sentence '{sentence[:50]}...': {ex}")
+                    # Continue with next sentence instead of failing completely
+                    continue
     else:
         for sentence in data:
-            Conversation=llm.invoke([{"role": "system", "content": prompt}, {"role": "user", "content": sentence}])
-            HinglishData.append(Conversation)
+            try:
+                Conversation=llm.invoke([{"role": "system", "content": prompt}, {"role": "user", "content": sentence}])
+                if Conversation and len(str(Conversation).strip()) > 0:
+                    HinglishData.append(Conversation)
+                else:
+                    print(f"Warning: Empty LLM response for sentence: {sentence[:50]}...")
+            except Exception as ex:
+                print(f"Error processing sentence '{sentence[:50]}...': {ex}")
+                # Continue with next sentence instead of failing completely
+                continue
 
+    # Check if we have any valid data after processing
+    if not HinglishData or len(HinglishData) == 0:
+        error_msg = "No valid Hinglish conversion data generated. All sentences may have failed."
+        if stlit:
+            st.error(error_msg)
+        print(error_msg)
+        return []
+    
     print("Hinglish conversion Done : " + str(datetime.now().strftime("%H:%M:%S")))
     if stlit:
         st.write("Hinglish conversion Done : " + str(datetime.now().strftime("%H:%M:%S")))
@@ -580,4 +608,3 @@ else:
     
     if __name__ == "__main__":
         main()
-
