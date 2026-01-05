@@ -348,7 +348,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🎥 Demo Video
 
-Watch the demo video: [YouTube Link]()
+Watch the demo video: [YouTube Link](https://youtu.be/7EzSwMMzrMI)
 
 ---
 
