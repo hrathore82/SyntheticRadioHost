@@ -57,7 +57,7 @@ import io,os,sys
 import argparse
 import requests
 
-#*************** Update Value of stlit to True for running in Steamlit and False for running using CLI
+#*************** Update Value of stlit to True for running in Streamlit and False for running using CLI
 stlit = True
 
 LLM_Model = "llama3:8b"
@@ -580,3 +580,4 @@ else:
     
     if __name__ == "__main__":
         main()
+
