@@ -1,1 +1,19 @@
-I have used a multi-layered prompt engineering strategy to generate linguistically accurate Hinglish dialogue. The prompt architecture employs role-based instruction ("Expert Hinglish Scriptwriter") to establish domain-specific context, enabling the LLM to access relevant linguistic patterns. The script specification mandates Roman Hindi transliteration, ensuring compatibility with text-to-speech systems while maintaining linguistic authenticity. The critical instruction to "blend English keywords into Hindi grammar naturally" addresses code-switching behavior characteristic of Hinglish, where lexical items from English are integrated into Hindi morphosyntactic structures. Grammatical constraints enforce formal register through respectful plural forms and maintain morphosyntactic agreement (noun-verb-gender alignment). The inclusion of discourse markers ("matlab", "dekhiye", "waise") facilitates natural conversational flow, while explicit audio cue integration enables multimodal output generation. Length constraints optimize for audio processing.
+I have used strategic prompt engineering to generate linguistically accurate Hinglish dialogue.
+The prompt architecture establishes role-based instruction ("Expert Hinglish Scriptwriter") to activate domain-specific linguistic patterns within the LLM's parameter space. 
+It mandates Roman Hindi transliteration for TTS system compatibility. 
+The core innovation is the instruction to "blend English keywords into Hindi grammar naturally," addressing Hinglish's code-switching behavior where English lexical items integrate into Hindi morphosyntactic structures. 
+The prompt enforces formal register through respectful plural forms ("aap"), maintains strict noun-verb-gender agreement, and requires discourse markers ("matlab", "dekhiye") for authentic conversational flow. 
+Structured Example output format with speaker tags (<speaker_A>, <speaker_B>) ensures dialogue clarity.
+Length constraints (50-60 words) optimize audio processing, while explicit audio cue integration enables expressive TTS output. 
+---
+
+## Key Technical Components
+
+1. **Role-Based Instruction**: Expert Hinglish Scriptwriter persona activation
+2. **Script Specification**: Roman Hindi transliteration requirement
+3. **Code-Switching Instruction**: English keywords in Hindi grammar
+4. **Grammatical Constraints**: Formal register, gender agreement
+5. **Discourse Markers**: Natural conversational fillers
+6. **Structured Output Format with Example**: Speaker tags for dialogue clarity with Example
+8. **Audio Cue Integration**: TTS-compatible markers
+9. **Artifact Elimination**: No meta-commentary constraint
