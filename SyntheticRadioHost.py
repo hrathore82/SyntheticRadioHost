@@ -539,7 +539,8 @@ def generate_audio(AudioData,Keys):
         if stlit:
             st.error(error_msg)
         print(error_msg)  
-        
+
+# **************ENTRY POINT of Script **********************        
 if stlit:
     if not Ollama_Status():
         sys.exit(0)
@@ -614,4 +615,5 @@ else:
     
     if __name__ == "__main__":
         main()
+
 
